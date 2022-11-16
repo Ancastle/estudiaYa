@@ -19,6 +19,7 @@ const getTest = (req, res) => {
     if (error) {
       throw error;
     }
+    console.log(results);
     res.status(200).json(results.rows);
   });
 };
