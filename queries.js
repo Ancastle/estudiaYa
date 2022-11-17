@@ -14,7 +14,7 @@ const pool = new Pool({
   port: PORT,
 });
 
-const getTest = (req, res) => {
+const getTests = (req, res) => {
   pool.query("SELECT * FROM test ORDER BY id ASC", (error, results) => {
     if (error) {
       throw error;
@@ -22,4 +22,8 @@ const getTest = (req, res) => {
     console.log(results);
     res.status(200).json(results.rows);
   });
+};
+
+module.exports = {
+  getTests,
 };

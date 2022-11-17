@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-
+const db = require("queries");
 const app = express();
 const PORT = 8080;
 
@@ -11,6 +11,8 @@ app.use(
     extended: true,
   })
 );
+
+app.get("/tests", db.getTests);
 
 app.get("/", (req, res) => {
   res.json({ info: "Running server on Railway" });
