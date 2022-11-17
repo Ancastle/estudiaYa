@@ -24,6 +24,22 @@ const getTests = (req, res) => {
   });
 };
 
+const createTest = (request, response) => {
+  const { name, gender } = request.body;
+
+  pool.query(
+    "INSERT INTO test (name, gender) VALUES ($1, $2) RETURNING *",
+    [name, gender],
+    (error, results) => {
+      if (error) {
+        throw error;
+      }
+      response.status(201).send(`User added with ID: ${results.rows[0].id}`);
+    }
+  );
+};
+
 module.exports = {
   getTests,
+  createTest,
 };

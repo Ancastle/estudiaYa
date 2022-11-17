@@ -13,6 +13,7 @@ app.use(
 );
 
 app.get("/tests", db.getTests);
+app.post("/tests", db.createTest);
 
 app.get("/", (req, res) => {
   res.json({ info: "Running server on Railway" });
