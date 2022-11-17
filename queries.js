@@ -1,7 +1,7 @@
 const DB_PASS = "xEsHvzKMZT1Q6yX0elzq";
 const DB_USER = "postgres";
 const DB_HOST = "containers-us-west-118.railway.app";
-const PORT = 5878;
+const PORT_DB = 5878;
 const DB_NAME = "railway";
 
 const Pool = require("pg").Pool;
@@ -11,7 +11,7 @@ const pool = new Pool({
   host: DB_HOST,
   database: DB_NAME,
   password: DB_PASS,
-  port: PORT,
+  port: PORT_DB,
 });
 
 const getTests = (req, res) => {
